@@ -1,0 +1,14 @@
+
+
+{# {% block title %}New Client{% endblock %} #}
+
+{% block body %}
+
+  {# <center><h3>Create new Client</h3></center> #}
+<h3 class="form-content" style="color:white;font-size: 38px; margin-bottom: 390px;">{{ 'Create new Client' }}</h3>
+
+
+    {{ include('client/_form.html.twig') }}
+
+
+{% endblock %}

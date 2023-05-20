@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+<style>
+ .table {
+        width: 100%;
+        max-width: 500px; /* Définir la largeur maximale du tableau */
+        margin: 0 auto; /* Centrer le tableau horizontalement */
+        background-color: #f5f5f5;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+    }
+
+    .table th, .table td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .table th {
+        background-color: black; /* Couleur d'arrière-plan de l'en-tête */
+        color: white;
+        text-align: left;
+    }
+
+    .table td {
+        background-color: white;
+    }
+
+    .table tbody tr:last-child td {
+        border-bottom: none; /* Supprimer la bordure du dernier élément de la colonne */
+    }
+ </style>
+{% endblock %}
+{% block body %}
+    <h1>Produit</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ produit.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ produit.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ produit.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ produit.prix }}</td>
+            </tr>
+            <tr>
+                <th>Qte</th>
+                <td>{{ produit.qte }}</td>
+            </tr>
+            <tr>
+                <th>Img</th>
+                <td>{{ produit.img }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_produit_index') }}">back to list</a>
+
+    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}"class="btn btn-warning"style="color: white;">edit</a>
+
+    {{ include('produit/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,29 @@
+.table {
+    width: 100%;
+    max-width: 500px; /* Définir la largeur maximale du tableau */
+    margin: 0 auto; /* Centrer le tableau horizontalement */
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.table th, .table td {
+    padding: 10px;
+    border-bottom: 1px solid #e2949400;
+}
+
+.table th {
+    background-color: #b12e2e; /* Couleur d'arrière-plan de l'en-tête */
+    color: white;
+    text-align: left;
+}
+
+.table td {
+    background-color: white;
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none; /* Supprimer la bordure du dernier élément de la colonne */
+}
+
+
