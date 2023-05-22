@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
 <style>
+.table-container {
+  margin-left:250px;
+}
  .table {
         width: 100%;
         max-width: 500px; /* Définir la largeur maximale du tableau */
@@ -31,40 +34,51 @@
  </style>
 {% endblock %}
 {% block body %}
-    <h1>Produit</h1>
 
+<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+<nav class="navbar"></nav>
+<script src="{{ asset('js/affichage.js') }}"></script>
+  <center>  <h1 style="color:black;font-size:38px;  font-weight: bold;">Produit</h1></center>
+<div class="table-container">
     <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ produit.id }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ produit.id }}</td>
             </tr>
             <tr>
                 <th>Nom</th>
-                <td>{{ produit.nom }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ produit.nom }}</td>
             </tr>
             <tr>
                 <th>Description</th>
-                <td>{{ produit.description }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ produit.description }}</td>
             </tr>
             <tr>
                 <th>Prix</th>
-                <td>{{ produit.prix }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ produit.prix }}</td>
             </tr>
             <tr>
                 <th>Qte</th>
-                <td>{{ produit.qte }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ produit.qte }}</td>
             </tr>
             <tr>
                 <th>Img</th>
-                <td>{{ produit.img }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ produit.img }}</td>
             </tr>
+             <tr>
+                <th>Actions</th>
+                <td>
+ <a href="{{ path('app_produit_edit', {'id': produit.id}) }}"class="btn btn-warning"style="color: white;">edit</a>
+<br><br>
+
+    {{ include('produit/_delete_form.html.twig') }}
+</td>
+  </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_produit_index') }}">back to list</a>
+    <a href="{{ path('app_produit_index') }}"style="color: black;font-size:18px;font-weight: bold;text-decoration: underline;">back to list</a>
 
-    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}"class="btn btn-warning"style="color: white;">edit</a>
-
-    {{ include('produit/_delete_form.html.twig') }}
+   
 {% endblock %}

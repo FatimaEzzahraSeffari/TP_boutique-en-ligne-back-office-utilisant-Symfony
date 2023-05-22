@@ -3,9 +3,20 @@
 {% block title %}Adresse index{% endblock %}
 
 {% block body %}
-   <center>  <h1>Adresse index</h1></center>
+{% block stylesheets %}
+<style>
+.table-container {
+  margin-left:250px;
+}
+</style>
+{% endblock %}
+<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+<nav class="navbar"></nav>
+<script src="{{ asset('js/affichage.js') }}"></script>
+   <center>  <h1 style="color:black;font-size:38px;  font-weight: bold;">Adresse index</h1></center>
 
-    
+    <div class="table-container">
+
     <table class="table">
          <thead class="thead-dark">
         
@@ -21,11 +32,11 @@
         <tbody>
         {% for adresse in adresses %}
             <tr>
-                <td>{{ adresse.id }}</td>
-                <td>{{ adresse.rue }}</td>
-                <td>{{ adresse.codePostal }}</td>
-                <td>{{ adresse.ville }}</td>
-                <td>{{ adresse.pays }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ adresse.id }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ adresse.rue }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ adresse.codePostal }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ adresse.ville }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ adresse.pays }}</td>
                 <td>
                     <a href="{{ path('app_adresse_show', {'id': adresse.id}) }}"class="btn btn-primary"style="color: white; text-decoration: none;">show</a>
                     <a href="{{ path('app_adresse_edit', {'id': adresse.id}) }}"class="btn btn-warning" style="color: white; text-decoration: none;">edit</a>

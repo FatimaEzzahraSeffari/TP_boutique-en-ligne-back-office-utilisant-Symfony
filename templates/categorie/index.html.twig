@@ -3,7 +3,19 @@
 {% block title %}Categorie index{% endblock %}
 
 {% block body %}
-   <center> <h1>Categorie index</h1></center>
+{% block stylesheets %}
+<style>
+.table-container {
+  margin-left:250px;
+}
+</style>
+{% endblock %}
+<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+<nav class="navbar"></nav>
+<script src="{{ asset('js/affichage.js') }}"></script>
+   <center> <h1  style="color:black;font-size:38px;  font-weight: bold;">Categorie index</h1></center>
+       <div class="table-container">
+
  <table class="table">
          <thead class="thead-dark">
             <tr>
@@ -16,9 +28,9 @@
         <tbody>
         {% for categorie in categories %}
             <tr>
-                <td>{{ categorie.id }}</td>
-                <td>{{ categorie.nom }}</td>
-                <td>{{ categorie.description }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ categorie.id }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ categorie.nom }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ categorie.description }}</td>
                 <td>
                     <a href="{{ path('app_categorie_show', {'id': categorie.id}) }}"class="btn btn-primary"style="color: white; text-decoration: none;">show</a>
                     <a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}"class="btn btn-warning" style="color: white; text-decoration: none;"> edit</a>

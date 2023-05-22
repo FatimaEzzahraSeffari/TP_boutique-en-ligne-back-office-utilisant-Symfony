@@ -4,7 +4,19 @@
 {% block title %}Client index{% endblock %}
 
 {% block body %}
-   <center> <h1>Client index</h1> </center>
+{% block stylesheets %}
+<style>
+.table-container {
+  margin-left:250px;
+}
+</style>
+{% endblock %}
+<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+<nav class="navbar"></nav>
+<script src="{{ asset('js/affichage.js') }}"></script>
+
+   <center> <h1 style="color:black;font-size:38px;  font-weight: bold;">Client index</h1> </center>
+<div class="table-container">
 
     <table class="table">
          <thead class="thead-dark">
@@ -19,10 +31,10 @@
         <tbody>
         {% for client in clients %}
             <tr>
-                <td>{{ client.id }}</td>
-                <td>{{ client.nom }}</td>
-                <td>{{ client.email }}</td>
-                <td>{{ client.password }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ client.id }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ client.nom }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ client.email }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ client.password }}</td>
                 <td>
                   
   <a href="{{ path('app_client_show', {'id': client.id}) }}" class="btn btn-primary"style="color: white; text-decoration: none;">show</a>

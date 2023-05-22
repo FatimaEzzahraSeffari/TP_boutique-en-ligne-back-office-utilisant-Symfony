@@ -3,7 +3,18 @@
 {% block title %}Produit index{% endblock %}
 
 {% block body %}
-  <center>  <h1>Produit index</h1></center>
+{% block stylesheets %}
+<style>
+.table-container {
+  margin-left:250px;
+}
+</style>
+{% endblock %}
+<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+<nav class="navbar"></nav>
+<script src="{{ asset('js/affichage.js') }}"></script>
+  <center>  <h1 style="color:black;font-size:38px;  font-weight: bold;">Produit index</h1></center>
+    <div class="table-container">
 
      <table class="table">
          <thead class="thead-dark">
@@ -20,12 +31,12 @@
         <tbody>
         {% for produit in produits %}
             <tr>
-                <td>{{ produit.id }}</td>
-                <td>{{ produit.nom }}</td>
-                <td>{{ produit.description }}</td>
-                <td>{{ produit.prix }}</td>
-                <td>{{ produit.qte }}</td>
-                <td>{{ produit.img }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ produit.id }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ produit.nom }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ produit.description }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ produit.prix }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ produit.qte }}</td>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ produit.img }}</td>
                 <td>
                     <a href="{{ path('app_produit_show', {'id': produit.id}) }}"class="btn btn-primary"style="color: white; text-decoration: none;">show</a>
                     <a href="{{ path('app_produit_edit', {'id': produit.id}) }}"class="btn btn-warning" style="color: white; text-decoration: none;">edit</a>
