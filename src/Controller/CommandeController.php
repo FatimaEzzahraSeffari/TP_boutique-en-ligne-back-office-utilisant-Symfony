@@ -16,9 +16,11 @@ class CommandeController extends AbstractController
     #[Route('/', name: 'app_commande_index', methods: ['GET'])]
     public function index(CommandeRepository $commandeRepository): Response
     {
+        
         return $this->render('commande/index.html.twig', [
             'commandes' => $commandeRepository->findAll(),
         ]);
+        
     }
 
     #[Route('/new', name: 'app_commande_new', methods: ['GET', 'POST'])]
@@ -75,4 +77,6 @@ class CommandeController extends AbstractController
 
         return $this->redirectToRoute('app_commande_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    
 }

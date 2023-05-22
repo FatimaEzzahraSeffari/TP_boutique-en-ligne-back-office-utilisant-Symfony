@@ -55,7 +55,11 @@
                 <th>Montant_total</th>
                 <td style="color:black;font-size:18px;font-weight: bold;">{{ commande.montantTotal }}</td>
             </tr>
-<tr>
+<tr>  <tr>
+                <th>client</th>
+                <td style="color:black;font-size:18px;font-weight: bold;">{{ commande.client }}</td>
+            </tr>
+             
                 <th>Actions</th>
                 <td>
              <a href="{{ path('app_commande_edit', {'id': commande.id}) }}"class="btn btn-warning"style="color: white;">edit</a>
